@@ -1,52 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
 
     public Player player;
     public Ball ball;
-    public TextMesh scoreText;
+    public TextMeshProUGUI scoreText;
+    [SerializeField] Canvas canvas;
 
-    public GameObject gameOverPanel;
-    public Button btnReiniciar;     
-    public Button btnMenu;          
+    private float gameOverTimer = 3f;
 
-    private bool isGameOver = false;
+    void Start() {
 
-    void Start()
-    {
-        gameOverPanel.SetActive(false);
-
-        btnReiniciar.onClick.AddListener(ReiniciarJuego);
-        btnMenu.onClick.AddListener(RegresarAlMenu);
     }
 
     void Update()
     {
-        if (!isGameOver)
+        bool isGameOver = ball.transform.position.z < player.transform.position.z;
+
+        if (isGameOver == false)
         {
-            isGameOver = ball.transform.position.z < player.transform.position.z;
-            if (!isGameOver)
-            {
-                scoreText.text = "Score: " + ball.score;
-            }
-            else
-            {
-                scoreText.text = "Game over!\nYour final score: " + ball.score;
-                gameOverPanel.SetActive(true); 
-            }
+            scoreText.text = "Score: " + ball.score;
+        } else {
+            scoreText.text = "Game over!\nYour final score: " + ball.score;
+            canvas.gameObject.SetActive(true);
         }
     }
 
-    void ReiniciarJuego()
+    public void Reiniciar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void RegresarAlMenu()
+    public void Menu()
     {
         SceneManager.LoadScene("Menu"); 
     }

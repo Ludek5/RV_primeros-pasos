@@ -6,14 +6,14 @@ public class CameraPointerManager : MonoBehaviour
 {
     public static CameraPointerManager instance;
     [SerializeField] private GameObject pointer;
-    [SerializeField] private float maxDistancePointer = 4.5f;
+    [SerializeField] private float maxDistancePointer = 15f;
     private readonly string interactableTag = "Interactable";
     private float scaleSize = 0.025f;
     [Range(0, 1)]
     [SerializeField] private float distPointerObject = 0.95f;
 
     
-    private const float _maxDistance = 10;
+    private const float _maxDistance = 15;
     private GameObject _gazedAtObject = null;
 
     [HideInInspector]
@@ -37,7 +37,6 @@ public class CameraPointerManager : MonoBehaviour
 
     private void GazeSelection() {
         _gazedAtObject?.SendMessage("OnPointerClickXR", null, SendMessageOptions.DontRequireReceiver);
-        _gazedAtObject?.SendMessage("MoveRight", null, SendMessageOptions.DontRequireReceiver);
     }
     /// <summary>
     /// 
@@ -64,6 +63,7 @@ public class CameraPointerManager : MonoBehaviour
             }
             if (hit.transform.CompareTag(interactableTag))
             {
+                Debug.Log("Se reconocio el tag interactable");
                 PointerOnGaze(hit.point);
             }
             else { PointerOutGaze(); }
