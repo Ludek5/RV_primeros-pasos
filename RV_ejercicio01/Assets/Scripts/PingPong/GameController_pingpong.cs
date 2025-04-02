@@ -3,15 +3,13 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameController : MonoBehaviour
+public class GameController_pingpong : MonoBehaviour
 {
 
     public Player player;
     public Ball ball;
     public TextMeshProUGUI scoreText;
     [SerializeField] Canvas canvas;
-
-    private float gameOverTimer = 3f;
 
     void Start() {
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player_pingpong : MonoBehaviour {
 
 	public float ballProximity = 4f;
 
