@@ -5,9 +5,15 @@ using TMPro;
 public class GameController : MonoBehaviour {
 
 	public TextMeshProUGUI infoText;
-	public GameObject ball;
+	[SerializeField]
+	private TextMeshProUGUI txt_acertada;
+    [SerializeField]
+    private TextMeshProUGUI txt_noacertada;
+
+    public GameObject ball;
 	public Player player;
 	public Cup[] cups;
+	private int gano;
 
 	private float resetTimer = 3f;
 
@@ -16,21 +22,33 @@ public class GameController : MonoBehaviour {
 		infoText.text = "¡Elige la taza correcta!";
 
 		StartCoroutine (ShuffleRoutine());
-	}
+		txt_acertada.text = "Acertada:"+PlayerPrefs.GetInt("acertada", 0).ToString();
+        txt_noacertada.text = "No Acertada:"+PlayerPrefs.GetInt("no_acertada", 0).ToString();
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (player.picked) {
 			if (player.won) {
 				infoText.text = "¡Ganaste!";
-
+				gano = 1;
             } else {
 				infoText.text = "¡Perdiste :( intenta de nuevo!";
-			}
+				gano = 0;
+            }
 
 			resetTimer -= Time.deltaTime;
 			if (resetTimer <= 0f) {
-				SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+				if (gano>0)
+				{
+                    PlayerPrefs.SetInt("acertada", PlayerPrefs.GetInt("acertada", 0) + 1);
+                }
+				else
+				{
+                    PlayerPrefs.SetInt("no_acertada", PlayerPrefs.GetInt("no_acertada", 0) + 1);
+                }
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
 		}
 	}
