@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class Enemy_naves : MonoBehaviour
 {
 
     public float speed = 1f;
