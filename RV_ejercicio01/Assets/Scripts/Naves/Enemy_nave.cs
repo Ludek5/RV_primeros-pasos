@@ -1,18 +1,11 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Enemy_naves : MonoBehaviour
+public class Enemy_nave : MonoBehaviour
 {
-
     public float speed = 1f;
     public Vector3 direction;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

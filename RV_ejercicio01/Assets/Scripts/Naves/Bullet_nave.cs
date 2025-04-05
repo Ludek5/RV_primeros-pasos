@@ -1,37 +1,28 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Bullet_naves : MonoBehaviour
+public class Bullet_nave : MonoBehaviour
 {
-
     public float speed = 1f;
     public Vector3 direction;
-
     private float lifetime = 2f;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
+            
     // Update is called once per frame
     void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
-
         lifetime -= Time.deltaTime;
-        if (lifetime < 0)
+        if(lifetime < 0)
         {
             Destroy(gameObject);
         }
     }
-
-    void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy")
         {
-            Destroy(collider.gameObject);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }
