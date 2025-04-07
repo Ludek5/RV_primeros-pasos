@@ -77,7 +77,7 @@ PrefabInstance:
       addedObject: {fileID: 5382036453061069376}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 485348327397049d3a0c33a1c99b7e25, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 349317848868605505}
+      addedObject: {fileID: 840090077332409140}
   m_SourcePrefab: {fileID: 100100000, guid: 485348327397049d3a0c33a1c99b7e25, type: 3}
 --- !u!1 &1633627152160738586 stripped
 GameObject:
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   direction: {x: 0, y: 0, z: 0}
---- !u!135 &349317848868605505
+--- !u!135 &840090077332409140
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

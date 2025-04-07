@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class MenuController_nave : MonoBehaviour
 {
 
     private Camera xRCamera;
-    [SerializeField] Text puntaje;
+    [SerializeField] TextMeshProUGUI puntaje;
     private void Start()
     {
         xRCamera = CameraPointerManager.instance.gameObject.GetComponent<Camera>();
@@ -26,7 +27,7 @@ public class MenuController_nave : MonoBehaviour
     }
     public void reiniciar()
     {
-        SceneManager.LoadScene("Juego_principal_vr");
+        SceneManager.LoadScene("Ejercicio05 - naves");
     }
     public void game_over()
     {

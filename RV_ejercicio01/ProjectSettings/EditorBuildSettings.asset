@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Naves/Ejercicio05 - naves.unity
+    guid: 523d4e4d15de2e94aa68183ce80c91b4
   - enabled: 1
-    path: Assets/Scenes/Ejercicio03 - pinpong.unity
-    guid: d11d51e73f29db043ac44ec4aef17e4f
+    path: Assets/Scenes/Naves/Menu_Game_Over.unity
+    guid: e0efb3b46a39a1a4bb7c658e88d91a96
   m_configObjects: {}
